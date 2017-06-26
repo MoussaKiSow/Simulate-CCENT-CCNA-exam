@@ -1,0 +1,105 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jun 26, 2017 at 07:35 PM
+-- Server version: 5.7.18-0ubuntu0.16.04.1
+-- PHP Version: 7.0.15-0ubuntu0.16.04.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `ExamDDBB`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `QuestionsAnswersccna`
+--
+
+CREATE TABLE `QuestionsAnswersccna` (
+  `status_mobile` varchar(2) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL DEFAULT '',
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_question` int(11) NOT NULL,
+  `Answer` varchar(250) NOT NULL,
+  `id_answer` int(11) NOT NULL,
+  `Ok_answer` int(11) NOT NULL DEFAULT '0',
+  `Notes` text NOT NULL,
+  `Create_User` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Create_Date` varchar(8) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Modify_User` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Modify_Date` varchar(8) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Questionsccna`
+--
+
+CREATE TABLE `Questionsccna` (
+  `Id` int(10) UNSIGNED NOT NULL,
+  `Code` varchar(11) NOT NULL DEFAULT '',
+  `Level` char(10) DEFAULT '1',
+  `Description` text,
+  `Type` char(1) NOT NULL DEFAULT '1',
+  `Language` int(11) NOT NULL DEFAULT '1',
+  `status_mobile` varchar(2) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT '01',
+  `Create_User` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Create_Date` varchar(8) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Modify_User` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Modify_Date` varchar(8) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Url` text,
+  `Folder` varchar(200) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `QuestionsAnswersccna`
+--
+ALTER TABLE `QuestionsAnswersccna`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_question_4` (`id_question`,`Answer`,`id_answer`),
+  ADD KEY `id_question` (`id_question`),
+  ADD KEY `id_answer` (`id_answer`),
+  ADD KEY `id_question_2` (`id_question`),
+  ADD KEY `id_answer_2` (`id_answer`),
+  ADD KEY `id_question_3` (`id_question`);
+
+--
+-- Indexes for table `Questionsccna`
+--
+ALTER TABLE `Questionsccna`
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `Code_2` (`Code`),
+  ADD KEY `Code` (`Code`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `QuestionsAnswersccna`
+--
+ALTER TABLE `QuestionsAnswersccna`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `Questionsccna`
+--
+ALTER TABLE `Questionsccna`
+  MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
